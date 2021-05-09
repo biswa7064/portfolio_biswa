@@ -15,42 +15,42 @@ const SkillsData = [
     id: "skill_1",
     skill: "HTML5",
     percentage: "95",
-    icon: <FaHtml5 size="50px" color="orange" />,
+    icon: <FaHtml5 size="40px" color="orange" />,
     motionTime: 0.5,
   },
   {
     id: "skill_2",
     skill: "CSS3",
     percentage: "85",
-    icon: <FaCss3 size="50px" color="orange" />,
+    icon: <FaCss3 size="40px" color="orange" />,
     motionTime: 1,
   },
   {
     id: "skill_1",
     skill: "Java Script",
     percentage: "80",
-    icon: <FaJs size="50px" color="orange" />,
+    icon: <FaJs size="40px" color="orange" />,
     motionTime: 1.5,
   },
   {
     id: "skill_1",
     skill: "React JS",
     percentage: "80",
-    icon: <FaReact size="50px" color="orange" />,
+    icon: <FaReact size="40px" color="orange" />,
     motionTime: 2,
   },
   {
     id: "skill_1",
     skill: "Firebase",
     percentage: "80",
-    icon: <SiFirebase size="50px" color="orange" />,
+    icon: <SiFirebase size="40px" color="orange" />,
     motionTime: 2.5,
   },
   {
     id: "skill_1",
     skill: "Github",
     percentage: "90",
-    icon: <FaGithub size="50px" color="orange" />,
+    icon: <FaGithub size="40px" color="orange" />,
     motionTime: 3,
   },
 ];
@@ -130,7 +130,7 @@ const Skills = () => {
                   <LinearProgress
                     variant="determinate"
                     value={skill.percentage}
-                    color="secondary"
+                    color="primary"
                   />
                 </div>
               </div>
