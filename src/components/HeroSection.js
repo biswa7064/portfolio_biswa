@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const useStyles = makeStyles({
   img_: {
-    height: "400px",
+    height: "350px",
     borderRadius: "30%",
   },
   img_div: {
@@ -64,6 +64,7 @@ const HeroSection = () => {
             className={classes.myName_div}
           >
             <Typography
+              align="center"
               variant="h2"
               className={classes.fnt_bld}
               //   style={{ textAlign: "center" }}
@@ -71,24 +72,37 @@ const HeroSection = () => {
               Hi, I'am Biswaranjan
             </Typography>
             <Typography
+              align="center"
               variant="h2"
               className={classes.fnt_bld}
               style={{ color: "#b36200" }}
             >
               React Developer
             </Typography>
-            <div>
+            <div style={{ textAlign: "center" }}>
               <IconButton>
-                <Facebook fontSize="large" style={{ color: "#4267B2" }} />
+                <Facebook
+                  fontSize="large"
+                  style={{ color: "#4267B2", fontSize: "50px" }}
+                />
               </IconButton>
               <IconButton>
-                <LinkedIn fontSize="large" style={{ color: "#0077b5" }} />
+                <LinkedIn
+                  fontSize="large"
+                  style={{ color: "#0077b5", fontSize: "50px" }}
+                />
               </IconButton>
               <IconButton>
-                <Instagram fontSize="large" style={{ color: "#e95950" }} />
+                <Instagram
+                  fontSize="large"
+                  style={{ color: "#e95950", fontSize: "50px" }}
+                />
               </IconButton>
               <IconButton>
-                <GitHub fontSize="large" style={{ color: "black" }} />
+                <GitHub
+                  fontSize="large"
+                  style={{ color: "black", fontSize: "50px" }}
+                />
               </IconButton>
             </div>
           </motion.div>
