@@ -11,8 +11,8 @@ import { motion } from "framer-motion";
 
 const useStyles = makeStyles({
   img_: {
-    height: "300px",
-    borderRadius: "50%",
+    height: "400px",
+    borderRadius: "30%",
   },
   img_div: {
     display: "flex",
@@ -68,10 +68,10 @@ const HeroSection = () => {
               className={classes.fnt_bld}
               //   style={{ textAlign: "center" }}
             >
-              Biswaranjan Das
+              Hi, I'am Biswaranjan
             </Typography>
             <Typography
-              variant="h4"
+              variant="h2"
               className={classes.fnt_bld}
               style={{ color: "#b36200" }}
             >

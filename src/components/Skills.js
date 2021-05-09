@@ -26,28 +26,28 @@ const SkillsData = [
     motionTime: 1,
   },
   {
-    id: "skill_1",
+    id: "skill_3",
     skill: "Java Script",
     percentage: "80",
     icon: <FaJs size="40px" color="orange" />,
     motionTime: 1.5,
   },
   {
-    id: "skill_1",
+    id: "skill_4",
     skill: "React JS",
     percentage: "80",
     icon: <FaReact size="40px" color="orange" />,
     motionTime: 2,
   },
   {
-    id: "skill_1",
+    id: "skill_5",
     skill: "Firebase",
     percentage: "80",
     icon: <SiFirebase size="40px" color="orange" />,
     motionTime: 2.5,
   },
   {
-    id: "skill_1",
+    id: "skill_6",
     skill: "Github",
     percentage: "90",
     icon: <FaGithub size="40px" color="orange" />,
@@ -58,7 +58,7 @@ console.log(SkillsData);
 const Skills = () => {
   return (
     <div style={{ minHeight: "100vh" }}>
-      <Container maxWidth={"md"}>
+      <Container>
         <div
           style={{
             textAlign: "center",
@@ -68,6 +68,9 @@ const Skills = () => {
           }}
         >
           <Button
+            disableRipple
+            disableTouchRipple
+            disableFocusRipple
             style={{
               borderBottom: "5px solid orange",
               fontWeight: "bold",
@@ -75,6 +78,8 @@ const Skills = () => {
               fontSize: "30px",
               textTransform: "none",
               color: "orange",
+              background: "none",
+              cursor: "default",
             }}
           >
             Skills

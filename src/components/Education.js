@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     fontSize: "30px",
     textTransform: "none",
     color: "orange",
+    cursor: "default",
   },
   btn_div: {
     textAlign: "center",
@@ -35,7 +36,15 @@ const Education = () => {
     <>
       <Container maxWidth="md">
         <div className={classes.btn_div}>
-          <Button className={classes.btn}>Education</Button>
+          <Button
+            className={classes.btn}
+            disableRipple
+            disableTouchRipple
+            disableFocusRipple
+            style={{ background: "none" }}
+          >
+            Education
+          </Button>
         </div>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
