@@ -66,6 +66,7 @@ const Skills = () => {
             marginTop: "20vh",
             marginBottom: "2vh",
           }}
+          id="skills"
         >
           <Button
             disableRipple

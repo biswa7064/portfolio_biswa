@@ -35,7 +35,7 @@ const Education = () => {
   return (
     <>
       <Container maxWidth="md">
-        <div className={classes.btn_div}>
+        <div className={classes.btn_div} id="education">
           <Button
             className={classes.btn}
             disableRipple

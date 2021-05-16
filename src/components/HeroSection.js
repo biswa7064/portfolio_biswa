@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const useStyles = makeStyles({
   img_: {
-    height: "350px",
+    height: "320px",
     borderRadius: "30%",
   },
   img_div: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   fnt_bld: {
     fontFamily: "sans-serif",
     fontWeight: "bold",
-    color: "#cc8400",
+    // color: "#cc8400",
   },
 });
 
@@ -41,7 +41,7 @@ const HeroSection = () => {
     // #fff200#003b64
 
     <>
-      <Container>
+      <Container id="about">
         <div className={classes.img_div}>
           <motion.div
             animate={{ x: 0 }}
@@ -75,7 +75,7 @@ const HeroSection = () => {
               align="center"
               variant="h2"
               className={classes.fnt_bld}
-              style={{ color: "#b36200" }}
+              style={{ color: "orange" }}
             >
               React Developer
             </Typography>
@@ -86,7 +86,10 @@ const HeroSection = () => {
                   style={{ color: "#4267B2", fontSize: "50px" }}
                 />
               </IconButton>
-              <IconButton>
+              <IconButton
+                href="https://www.linkedin.com/in/biswaranjan-das-3b403a171/"
+                target="blank"
+              >
                 <LinkedIn
                   fontSize="large"
                   style={{ color: "#0077b5", fontSize: "50px" }}
