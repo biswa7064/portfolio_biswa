@@ -5,9 +5,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import { Facebook, GitHub, Instagram, LinkedIn } from "@material-ui/icons";
-import React from "react";
+import React, { useEffect } from "react";
 import { profilePic } from "../assets";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const useStyles = makeStyles({
   img_: {
@@ -37,32 +38,47 @@ const useStyles = makeStyles({
 
 const HeroSection = () => {
   const classes = useStyles();
-  return (
-    // #fff200#003b64
+  const { ref, inView } = useInView();
+  const animation = useAnimation();
+  const animation1 = useAnimation();
 
+  useEffect(() => {
+    if (inView) {
+      animation?.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+          type: "spring",
+          stiffness: 50,
+        },
+      });
+      animation1?.start({
+        opacity: 1,
+        transition: {
+          ease: "easeOut",
+          duration: 2,
+        },
+      });
+    }
+    if (!inView) {
+      animation?.start({
+        x: -1000,
+        opacity: 0,
+      });
+      animation1?.start({
+        opacity: 0,
+      });
+    }
+  });
+  return (
     <>
-      <Container id="about">
+      <Container id="about" ref={ref}>
         <div className={classes.img_div}>
-          <motion.div
-            animate={{ x: 0 }}
-            initial={{ x: -1000 }}
-            transition={{
-              duration: 0.5,
-              type: "spring",
-              stiffness: 50,
-            }}
-          >
+          <motion.div animate={animation}>
             <img src={profilePic} alt="" className={classes.img_} />
           </motion.div>
-          <motion.div
-            animate={{ opacity: 1 }}
-            initial={{ opacity: 0 }}
-            transition={{
-              ease: "easeOut",
-              duration: 2,
-            }}
-            className={classes.myName_div}
-          >
+          <motion.div animate={animation1} className={classes.myName_div}>
             <Typography
               align="center"
               variant="h2"

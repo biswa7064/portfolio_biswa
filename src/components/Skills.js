@@ -5,10 +5,11 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
 import { FaCss3, FaGithub, FaHtml5, FaJs, FaReact } from "react-icons/fa";
 import { SiFirebase } from "react-icons/si";
+import { useInView } from "react-intersection-observer";
 
 const SkillsData = [
   {
@@ -54,16 +55,44 @@ const SkillsData = [
     motionTime: 3,
   },
 ];
-console.log(SkillsData);
 const Skills = () => {
+  const { ref, inView } = useInView();
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    SkillsData?.map((skill) => {
+      if (inView) {
+        animation.start({
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 1,
+            ease: "easeOut",
+            stiffness: 100,
+            type: "spring",
+            delay: skill.motionTime,
+            bounce: 0.5,
+          },
+        });
+      }
+      if (!inView) {
+        animation.start({
+          y: -50,
+          opacity: 0,
+        });
+      }
+    });
+  }, [animation, inView]);
+
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div style={{ minHeight: "100vh" }} ref={ref}>
       <Container>
         <div
           style={{
             textAlign: "center",
             width: "100%",
-            marginTop: "20vh",
+            marginTop: "5vh",
             marginBottom: "2vh",
           }}
           id="skills"
@@ -86,10 +115,11 @@ const Skills = () => {
             Skills
           </Button>
         </div>
-        {SkillsData.map((skill) => (
+        {SkillsData?.map((skill) => (
           <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            animate={animation}
+            // initial={{ y: -50, opacity: 0 }}
+            // animate={{ y: 0, opacity: 1 }}
             transition={{
               duration: 5,
               ease: "easeOut",

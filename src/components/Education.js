@@ -8,8 +8,9 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { profilePic } from "../assets";
 
 const useStyles = makeStyles({
@@ -32,10 +33,86 @@ const useStyles = makeStyles({
 
 const Education = () => {
   const classes = useStyles();
+  const imageAnimation = useAnimation();
+  const animation1 = useAnimation();
+  const animation2 = useAnimation();
+  const animation3 = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      imageAnimation?.start({
+        x: 0,
+        opacity: 1,
+        transition: {
+          ease: "easeOut",
+          stiffness: 200,
+          type: "spring",
+          delay: 1,
+        },
+      });
+      animation1.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 5,
+          ease: "easeOut",
+          stiffness: 100,
+          type: "spring",
+          delay: 0.5,
+        },
+      });
+      animation2.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 5,
+          ease: "easeOut",
+          stiffness: 100,
+          type: "spring",
+          delay: 1,
+        },
+      });
+      animation3.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 5,
+          ease: "easeOut",
+          stiffness: 100,
+          type: "spring",
+          delay: 1.5,
+        },
+      });
+    }
+    if (!inView) {
+      imageAnimation?.start({
+        x: -50,
+        opacity: 0,
+      });
+      animation1?.start({
+        y: -50,
+        opacity: 0,
+      });
+      animation2?.start({
+        y: -50,
+        opacity: 0,
+      });
+      animation3?.start({
+        y: -50,
+        opacity: 0,
+      });
+    }
+  }, [imageAnimation, inView, animation1, animation2, animation3]);
   return (
     <>
-      <Container maxWidth="md">
-        <div className={classes.btn_div} id="education">
+      <Container
+        maxWidth="md"
+        style={{ marginTop: "15%" }}
+        id="education"
+        ref={ref}
+      >
+        <div className={classes.btn_div}>
           <Button
             className={classes.btn}
             disableRipple
@@ -48,16 +125,7 @@ const Education = () => {
         </div>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <motion.div
-              initial={{ x: -100 }}
-              animate={{ x: 0 }}
-              transition={{
-                duration: 1,
-                ease: "easeOut",
-                stiffness: 150,
-                type: "spring",
-              }}
-            >
+            <motion.div animate={imageAnimation}>
               <img
                 src={profilePic}
                 alt=""
@@ -67,17 +135,7 @@ const Education = () => {
             </motion.div>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 5,
-                ease: "easeOut",
-                stiffness: 100,
-                type: "spring",
-                delay: 0.5,
-              }}
-            >
+            <motion.div animate={animation1}>
               <List>
                 <ListItemIcon></ListItemIcon>
                 <ListItemText
@@ -93,17 +151,7 @@ const Education = () => {
                 />
               </List>
             </motion.div>
-            <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 5,
-                ease: "easeOut",
-                stiffness: 100,
-                type: "spring",
-                delay: 1,
-              }}
-            >
+            <motion.div animate={animation2}>
               <List>
                 <ListItemIcon></ListItemIcon>
                 <ListItemText
@@ -121,17 +169,7 @@ const Education = () => {
                 />
               </List>
             </motion.div>
-            <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 5,
-                ease: "easeOut",
-                stiffness: 100,
-                type: "spring",
-                delay: 1.5,
-              }}
-            >
+            <motion.div animate={animation3}>
               <List>
                 <ListItemIcon></ListItemIcon>
                 <ListItemText

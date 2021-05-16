@@ -36,26 +36,26 @@ const ContactForm = () => {
     }
     if (!inView) {
       animation?.start({
-        y: -100,
-        opacity: -1,
+        y: -50,
+        opacity: 0,
       });
       animation1?.start({
-        y: -100,
-        opacity: -1,
+        y: -50,
+        opacity: 0,
       });
       animation2?.start({
-        y: -100,
-        opacity: -1,
+        y: -50,
+        opacity: 0,
       });
       animation3?.start({
-        y: -100,
-        opacity: -1,
+        y: -50,
+        opacity: 0,
       });
     }
   }, [inView, animation, animation1, animation2, animation3]);
   return (
     <>
-      <Container style={{ marginBottom: "30vh" }} maxWidth="sm">
+      <Container style={{ marginBottom: "30vh" }} maxWidth="sm" ref={ref}>
         <div
           style={{
             textAlign: "center",
@@ -63,7 +63,6 @@ const ContactForm = () => {
             marginBottom: "2vh",
           }}
           id="contact"
-          ref={ref}
         >
           <Button
             disableRipple
@@ -123,6 +122,12 @@ const ContactForm = () => {
                   variant="contained"
                   fullWidth
                   style={{ backgroundColor: "orange", color: "white" }}
+                  endIcon={
+                    <i
+                      class="fas fa-paper-plane"
+                      style={{ color: "white" }}
+                    ></i>
+                  }
                 >
                   Submit
                 </Button>
