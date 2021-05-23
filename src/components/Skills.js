@@ -62,26 +62,23 @@ const Skills = () => {
 
   useEffect(() => {
     SkillsData?.map((skill) => {
-      if (inView) {
-        animation.start({
-          y: 0,
-          opacity: 1,
-          transition: {
-            duration: 1,
-            ease: "easeOut",
-            stiffness: 100,
-            type: "spring",
-            delay: skill.motionTime,
-            bounce: 0.5,
-          },
-        });
-      }
-      if (!inView) {
-        animation.start({
-          y: -50,
-          opacity: 0,
-        });
-      }
+      return inView
+        ? animation.start({
+            y: 0,
+            opacity: 1,
+            transition: {
+              duration: 1,
+              ease: "easeOut",
+              stiffness: 100,
+              type: "spring",
+              delay: skill.motionTime,
+              bounce: 0.5,
+            },
+          })
+        : animation.start({
+            y: -50,
+            opacity: 0,
+          });
     });
   }, [animation, inView]);
 
