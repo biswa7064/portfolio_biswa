@@ -88,6 +88,7 @@ const Header = () => {
           backgroundColor: "orange",
           marginBottom: "5%",
         }}
+        elevation={0}
       >
         <div
           style={{
